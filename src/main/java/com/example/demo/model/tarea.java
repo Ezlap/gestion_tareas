@@ -5,7 +5,7 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "tareas")
-public class tarea {
+public class Tarea {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class tarea {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
-    private usuario usuario;
+    private Usuario usuario;
 
     //Getters and Setters
     public Long getId() { return id; }
@@ -41,6 +41,6 @@ public class tarea {
     public LocalDate getFechaLimite() { return fechaLimite; }
     public void setFechaLimite(LocalDate fechaLimite) { this.fechaLimite = fechaLimite; }
 
-    public usuario getUsuario() { return usuario; }
-    public void setUsuario(usuario usuario) { this.usuario = usuario; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }
