@@ -13,7 +13,6 @@ public class RegisterRequest {
     @Size(min = 6, message = "Mínimo 6 caracteres")
     private String password;
 
-    //Constructor
     public RegisterRequest(String nombre, String email, String password) {
         this.nombre = nombre;
         this.email = email;

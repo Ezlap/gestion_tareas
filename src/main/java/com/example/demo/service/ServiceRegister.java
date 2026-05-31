@@ -21,7 +21,7 @@ public class ServiceRegister {
         usuario.setEmail(request.getEmail());
         usuario.setPassword(passwordEncoder.encode(request.getPassword()));
 
-
         usuarioRepository.save(usuario);
+        
     }
 }
