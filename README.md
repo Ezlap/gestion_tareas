@@ -8,6 +8,7 @@ tasks with JWT authentication.
 - Spring Boot 4
 - MySQL
 - Spring Security + JWT
+- BCrypt password encryption
 - Maven
 
 ## ▶Running the project locally
@@ -31,25 +32,30 @@ tasks with JWT authentication.
    DB_URL=jdbc:mysql://localhost:3306/gestion_tareas
    DB_USER=your_username
    DB_PASSWORD=your_password
+   jwt.secret=your_key
 
 4. Run the project
    ./mvnw spring-boot:run
 
-## Main Endpoints
+## API Endpoints
 
 ### Authentication
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | /api/v1/auth/register | Register a new user |
-| POST | /api/v1/auth/login | Login |
+| POST | /auth/register | Register a new user | nombre, email, password |
+| POST | /auth/login | Login and get JWT token | email, password |
 
-### Tasks (JWT token required)
+### Tasks (JWT required) — coming soon
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 | GET | /api/v1/tasks | List my tasks |
 | POST | /api/v1/tasks | Create a task |
 | PUT | /api/v1/tasks/{id} | Update a task |
 | DELETE | /api/v1/tasks/{id} | Delete a task |
+
+## Authentication
+All task endpoints require a JWT token in the header:
+Authorization: Bearer <your_token>
 
 ## Author
 Elkin Esteban Salazar Pérez
