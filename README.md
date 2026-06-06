@@ -11,7 +11,7 @@ tasks with JWT authentication.
 - BCrypt password encryption
 - Maven
 
-## ▶Running the project locally
+## Running the project locally
 
 ### Requirements
 - Java 17+
@@ -29,10 +29,10 @@ tasks with JWT authentication.
 3. Create the file src/main/resources/application-local.properties
    with your credentials:
 
-   DB_URL=jdbc:mysql://localhost:3306/gestion_tareas
-   DB_USER=your_username
-   DB_PASSWORD=your_password
-   jwt.secret=your_key
+- DB_URL=jdbc:mysql://localhost:3306/gestion_tareas
+- DB_USER=your_username
+- DB_PASSWORD=your_password
+- jwt.secret=your_key
 
 4. Run the project
    ./mvnw spring-boot:run
@@ -48,15 +48,54 @@ tasks with JWT authentication.
 ### Tasks (JWT required) — coming soon
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | /api/v1/tasks | List my tasks |
-| POST | /api/v1/tasks | Create a task |
-| PUT | /api/v1/tasks/{id} | Update a task |
-| DELETE | /api/v1/tasks/{id} | Delete a task |
+| GET |  /task/list | List my tasks |
+| POST | /task/create | Create a task | titulo, descripcion, estado, fechaLimite |
+| PUT | /task/update/{id} | Update a task | titulo, descripcion, estado, fechaLimite |
+| DELETE | /task/delete/{id} | Delete a task |
 
-## Authentication
-All task endpoints require a JWT token in the header:
-Authorization: Bearer <your_token>
+## How to authenticate
+
+1. Register or login to get your JWT token
+2. Copy the token from the response
+3. In Thunder Client go to Auth → Bearer and paste the token
+4. All task requests will be authenticated automatically
+
+### Example request body for register:
+```json
+{
+  "nombre": "Your name",
+  "email": "your@email.com",
+  "password": "yourpassword"
+}
+```
+
+### Example request body for create task:
+```json
+{
+    "titulo": "My first task",
+    "descripcion": "Task description",
+    "estado": "PENDIENTE",
+    "fechaLimite": "2026-12-31"
+}
+```
+
+### Valid status values:
+- PENDIENTE
+- EN_PROGRESO
+- COMPLETADA
+
+## Project Structure
+```text
+src/main/java/com/example/demo/
+├── controller/     # HTTP Endpoints (Manejo de peticiones de entrada)
+├── service/        # Business logic (Lógica de negocio y validaciones)
+├── repository/     # Database queries (Interfaces que conectan con MySQL)
+├── model/          # Database entities (Modelos y tablas de la base de datos)
+├── dto/            # Data Transfer Objects (Request y Response limpios)
+└── security/       # JWT and Spring Security configurations
+```
 
 ## Author
 Elkin Esteban Salazar Pérez
-[GitHub](https://github.com/ezlap)
+- [LinkedIn](https://www.linkedin.com/in/elkin-esteban-salazar-perez-904924366/)
+- [GitHub](https://github.com/ezlap)
