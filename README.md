@@ -61,33 +61,39 @@ tasks with JWT authentication.
 4. All task requests will be authenticated automatically
 
 ### Example request body for register:
+```json
 {
-    "nombre": "Your name",
-    "email": "your@email.com",
-    "password": "yourpassword"
+  "nombre": "Your name",
+  "email": "your@email.com",
+  "password": "yourpassword"
 }
+```
 
 ### Example request body for create task:
+```json
 {
     "titulo": "My first task",
     "descripcion": "Task description",
     "estado": "PENDIENTE",
     "fechaLimite": "2026-12-31"
 }
+```
 
 ### Valid status values:
 - PENDIENTE
 - EN_PROGRESO
 - COMPLETADA
 
-## 📁 Project Structure
+## Project Structure
+```text
 src/main/java/com/example/demo/
-├── controller/     → HTTP endpoints
-├── service/        → Business logic
-├── repository/     → Database queries
-├── model/          → Database entities
-├── dto/            → Request and response objects
-└── security/       → JWT and Spring Security config
+├── controller/     # HTTP Endpoints (Manejo de peticiones de entrada)
+├── service/        # Business logic (Lógica de negocio y validaciones)
+├── repository/     # Database queries (Interfaces que conectan con MySQL)
+├── model/          # Database entities (Modelos y tablas de la base de datos)
+├── dto/            # Data Transfer Objects (Request y Response limpios)
+└── security/       # JWT and Spring Security configurations
+```
 
 ## Author
 Elkin Esteban Salazar Pérez
