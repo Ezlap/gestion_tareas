@@ -62,17 +62,17 @@ tasks with JWT authentication.
 
 ### Example request body for register:
 {
-   "nombre": "Your name",
-   "email": "your@email.com",
-   "password": "yourpassword"
+    "nombre": "Your name",
+    "email": "your@email.com",
+    "password": "yourpassword"
 }
 
 ### Example request body for create task:
 {
-   "titulo": "My first task",
-   "descripcion": "Task description",
-   "estado": "PENDIENTE",
-   "fechaLimite": "2026-12-31"
+    "titulo": "My first task",
+    "descripcion": "Task description",
+    "estado": "PENDIENTE",
+    "fechaLimite": "2026-12-31"
 }
 
 ### Valid status values:
